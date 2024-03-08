@@ -1,8 +1,23 @@
-const soma = (req, res) => {
+const { json } = require("express");
 
-    const soma = 1 + 1;
+const create = ( req, res ) => {
+    const {name, username, email, password, avatar, background} = req.body;
 
-    res.send({ soma: soma })
-}
+    if (!name || !username || !email || !password || !avatar || !background){
+        res.status(400).send({message:"Submmit All Fields For Registration"})
+    }
+    res.status(201).send({
+        
+        message: "user Created Sucessfully",
 
-module.exports = {soma}
+        user: {
+            name,
+            username,
+            email,
+            avatar,
+            background
+        }
+    });
+};
+
+module.exports = { create }
