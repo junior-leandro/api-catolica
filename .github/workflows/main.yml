@@ -3,7 +3,7 @@ name: Deploy to Heroku
 on:
   push:
     branches:
-      - main  # altere para o nome da sua branch principal, se necessário
+      - main  
 
 jobs:
   deploy:
